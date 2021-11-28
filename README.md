@@ -1,6 +1,6 @@
 # GallerySlideShow
 It seems WIndows 11 removed their Slideshow feature. <br>
-So I a JavaFX version of it.<br>
+So I made a JavaFX version of it.<br>
 This program will take the working directory and attempt to find all images with the file extensions of: png, jpg,jpeg, gif and bmp. If no files with those extensions are found. Than the program will close with a message saying such.<br>
 Once the images are gathered, they will be shown fullscreen. Changing every 5 seconds. Duration can be changed from the right click menu.<br>
 Left, Right arrow keys and Left Click will scroll through the images.<br>
