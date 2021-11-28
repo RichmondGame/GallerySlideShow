@@ -42,3 +42,8 @@ Navigate to a folder/gallery. <br>
 IMPORTANT: Right click anywhere on the white space (Not on a file. The registry key we made won't add our Slideshow option to the menu if you right clicked on a file)<br>
 In Windows 11, click "More Options"<br>
 Click on "Slideshow"<br>
+
+
+<h1>Known Bugs</h1><br>
+I'm using java.util.prefs.Preferences to save some settings. Such as the interval speed and if images are random. Preferences store these settings in the windows registry. If you see any errors in the command window that have something to the effect of failing to create registry keys. It's not an issue. Your settings just won't be saved the next time you open the app again.
+
