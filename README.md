@@ -1,8 +1,8 @@
 # GallerySlideShow
-It seems WIndows 11 removed their Slideshow feature. 
-So I a JavaFX version of it.
-This program will take the working directory and attempt to find all images with the file extensions of: png, jpg,jpeg, gif and bmp. If no files with those extensions are found. Than the program will close with a message saying such.
-Once the images are gathered, they will be shown fullscreen. Changing every 5 seconds. Duration can be changed from the right click menu.
+It seems WIndows 11 removed their Slideshow feature. \n
+So I a JavaFX version of it.\n
+This program will take the working directory and attempt to find all images with the file extensions of: png, jpg,jpeg, gif and bmp. If no files with those extensions are found. Than the program will close with a message saying such.\n
+Once the images are gathered, they will be shown fullscreen. Changing every 5 seconds. Duration can be changed from the right click menu.\n
 Left, Right arrow keys and Left Click will scroll through the images.
 Spacebar will pause
 Hitting Esc will close
