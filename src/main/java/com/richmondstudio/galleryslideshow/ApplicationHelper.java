@@ -98,7 +98,7 @@ public class ApplicationHelper {
                 triggerSlide(switchPhotoTrigger);
             }
             if (KeyCode.RIGHT == event.getCode()) {
-                if (ITERATOR > imagePaths.length - 2) {
+                if (ITERATOR > imagePaths.length - 1) {
                     ITERATOR = 0;
                 }
                 triggerSlide(switchPhotoTrigger);
@@ -110,7 +110,7 @@ public class ApplicationHelper {
         root.setOnMouseClicked(event -> {
             MouseButton button = event.getButton();
             if(button==MouseButton.PRIMARY){
-                if (ITERATOR > imagePaths.length - 2) {
+                if (ITERATOR > imagePaths.length - 1) {
                     ITERATOR = 0;
                 }
                 triggerSlide(switchPhotoTrigger);

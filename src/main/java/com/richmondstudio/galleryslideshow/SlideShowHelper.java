@@ -44,7 +44,7 @@ public class SlideShowHelper {
         }
         try {
             stream = new FileInputStream(WORKING_DIRECTORY +
-                    "\\" + imagePaths[++ITERATOR]);
+                    "\\" + imagePaths[ITERATOR++]);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
