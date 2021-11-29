@@ -7,7 +7,7 @@ Left, Right arrow keys and Left Click will scroll through the images.<br>
 Spacebar will pause<br>
 Hitting Esc will close<br>
 
-HOW TO USE<br>
+<h2>HOW TO USE</h2><br>
 Place the Jar file anywhere that is easy to access. (i.e., C:\Program Files\Slideshow)<br>
 Create a batch file called "start.bat", in the same directory.<br>
 Add the following line to the batch file: <br>
