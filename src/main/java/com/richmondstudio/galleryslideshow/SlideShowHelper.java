@@ -13,7 +13,7 @@ import static com.richmondstudio.galleryslideshow.Main.*;
 
 public class SlideShowHelper {
 
-    private static ImageView imageView;
+    public static ImageView imageView;
 
     public static String[] getImagePathsFromWorkingDirectory(File workingDirectory) {
         FilenameFilter filter = (file, name) -> {
@@ -39,7 +39,7 @@ public class SlideShowHelper {
 
     public static ImageView setImageView(ImageView iView) {
         InputStream stream = null;
-        if (ITERATOR > imagePaths.length) {
+        if (ITERATOR > imagePaths.length -1) {
             ITERATOR = 0;
         }
         try {

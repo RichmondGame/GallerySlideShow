@@ -2,6 +2,8 @@ package com.richmondstudio.galleryslideshow;
 
 import javafx.animation.Animation;
 import javafx.animation.Timeline;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.MenuItem;
 import javafx.scene.input.KeyCode;
@@ -19,6 +21,7 @@ public class ApplicationHelper {
     static Preferences prefs = Preferences.systemNodeForPackage(Main.class);
     private static Stage mStage;
     private static Timeline mSwitchPhotoTrigger;
+    public static Boolean switchedPhotoWhilePaused = false;
 
     public static ContextMenu menu(double x, double y) {
         ContextMenu rightClickMenu = new ContextMenu();
@@ -86,7 +89,13 @@ public class ApplicationHelper {
                 if (switchPhotoTrigger.getStatus() == Animation.Status.RUNNING) {
                     switchPhotoTrigger.pause();
                 } else {
-                    switchPhotoTrigger.play();
+                    if (switchedPhotoWhilePaused) {
+                        switchPhotoTrigger.playFrom(Duration.seconds(0.00));
+                        switchedPhotoWhilePaused = false;
+                    } else {
+                        switchPhotoTrigger.play();
+                    }
+
                 }
             }
 
@@ -96,12 +105,14 @@ public class ApplicationHelper {
                     ITERATOR = imagePaths.length - 2;
                 }
                 triggerSlide(switchPhotoTrigger);
+                switchPhotoTrigger.playFrom(Duration.seconds(0));
             }
             if (KeyCode.RIGHT == event.getCode()) {
                 if (ITERATOR > imagePaths.length - 1) {
                     ITERATOR = 0;
                 }
                 triggerSlide(switchPhotoTrigger);
+                switchPhotoTrigger.playFrom(Duration.seconds(0));
             }
 
         });
@@ -122,7 +133,10 @@ public class ApplicationHelper {
     }
 
     private static void triggerSlide(Timeline switchPhotoTrigger){
-        double i = interval;
-        switchPhotoTrigger.playFrom(Duration.seconds(i - 0.01));
+        SlideShowHelper.setImageView(SlideShowHelper.imageView);
+        if (switchPhotoTrigger.getStatus() == Animation.Status.PAUSED) {
+            switchedPhotoWhilePaused = true;
+        }
+
     }
 }
