@@ -2,8 +2,6 @@ package com.richmondstudio.galleryslideshow;
 
 import javafx.animation.Animation;
 import javafx.animation.Timeline;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.MenuItem;
 import javafx.scene.input.KeyCode;
@@ -75,25 +73,25 @@ public class ApplicationHelper {
         stage.close();
     }
 
-    public static void initiza(Stage stage, BorderPane root, Timeline switchPhotoTrigger) {
+    public static Timeline initiza(Stage stage, BorderPane root, Timeline switchPhotoTrigger) {
         mStage = stage;
         mSwitchPhotoTrigger = switchPhotoTrigger;
 
         //Close when escape is hit
         stage.addEventHandler(KeyEvent.KEY_RELEASED, (KeyEvent event) -> {
             if (KeyCode.ESCAPE == event.getCode()) {
-                exit(stage, switchPhotoTrigger);
+                exit(stage, mSwitchPhotoTrigger);
             }
             //Pause with Spacebar
             if (KeyCode.SPACE == event.getCode()) {
-                if (switchPhotoTrigger.getStatus() == Animation.Status.RUNNING) {
-                    switchPhotoTrigger.pause();
+                if (mSwitchPhotoTrigger.getStatus() == Animation.Status.RUNNING) {
+                    mSwitchPhotoTrigger.pause();
                 } else {
                     if (switchedPhotoWhilePaused) {
-                        switchPhotoTrigger.playFrom(Duration.seconds(0.00));
+                        mSwitchPhotoTrigger.playFrom(Duration.seconds(0.00));
                         switchedPhotoWhilePaused = false;
                     } else {
-                        switchPhotoTrigger.play();
+                        mSwitchPhotoTrigger.play();
                     }
 
                 }
@@ -104,15 +102,15 @@ public class ApplicationHelper {
                 if (ITERATOR < 0) {
                     ITERATOR = imagePaths.length - 2;
                 }
-                triggerSlide(switchPhotoTrigger);
-                switchPhotoTrigger.playFrom(Duration.seconds(0));
+                triggerSlide(mSwitchPhotoTrigger);
+                mSwitchPhotoTrigger.playFrom(Duration.seconds(0));
             }
             if (KeyCode.RIGHT == event.getCode()) {
                 if (ITERATOR > imagePaths.length - 1) {
                     ITERATOR = 0;
                 }
-                triggerSlide(switchPhotoTrigger);
-                switchPhotoTrigger.playFrom(Duration.seconds(0));
+                triggerSlide(mSwitchPhotoTrigger);
+                mSwitchPhotoTrigger.playFrom(Duration.seconds(0));
             }
 
         });
@@ -124,12 +122,16 @@ public class ApplicationHelper {
                 if (ITERATOR > imagePaths.length - 1) {
                     ITERATOR = 0;
                 }
-                triggerSlide(switchPhotoTrigger);
-
+                triggerSlide(mSwitchPhotoTrigger);
+                mSwitchPhotoTrigger.playFrom(Duration.seconds(0));
             }else if(button==MouseButton.SECONDARY){
                 menu(event.getX(), event.getY()).show(stage, event.getX(), event.getY());
             }
         });
+        mSwitchPhotoTrigger.setCycleCount(Timeline.INDEFINITE);
+        mSwitchPhotoTrigger.play();
+
+        return mSwitchPhotoTrigger;
     }
 
     private static void triggerSlide(Timeline switchPhotoTrigger){

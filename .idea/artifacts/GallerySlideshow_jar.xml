@@ -19,6 +19,13 @@
       <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.openjfx/javafx-base/17.0.0.1/148c0679082b0928fbe6335894e8423e4fcf4c1f/javafx-base-17.0.0.1.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.openjfx/javafx-controls/17.0.0.1/344b49d5074bf742bcb179caff1a6a16939dc719/javafx-controls-17.0.0.1.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.junit.jupiter/junit-jupiter-engine/5.7.1/7fcfa59c5533abb41f86b1408960737eeaf1f49f/junit-jupiter-engine-5.7.1.jar" path-in-jar="/" />
+      <element id="library" level="project" name="Gradle: org.openjfx:javafx-base:17.0.0.1" />
+      <element id="library" level="project" name="Gradle: org.openjfx:javafx-base:win:17.0.0.1" />
+      <element id="library" level="project" name="Gradle: org.openjfx:javafx-controls:17.0.0.1" />
+      <element id="library" level="project" name="Gradle: org.openjfx:javafx-controls:win:17.0.0.1" />
+      <element id="library" level="project" name="Gradle: org.openjfx:javafx-fxml:win:17.0.0.1" />
+      <element id="library" level="project" name="Gradle: org.openjfx:javafx-graphics:17.0.0.1" />
+      <element id="library" level="project" name="Gradle: org.openjfx:javafx-graphics:win:17.0.0.1" />
     </root>
   </artifact>
 </component>

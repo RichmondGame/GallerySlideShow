@@ -64,14 +64,11 @@ public class Main extends Application {
 
         Scene scene = new Scene(pane);
         scene.setFill(Color.BLACK);
-        switchPhotoTrigger = SlideShowHelper.createSlideShowTimer(interval, imageView);
+        switchPhotoTrigger = ApplicationHelper.initiza(
+                stage, pane,SlideShowHelper.createSlideShowTimer(interval, imageView));
 
-        ApplicationHelper.initiza(stage, pane, switchPhotoTrigger);
         stage.setScene(scene);
         stage.show();
-
-        switchPhotoTrigger.setCycleCount(Timeline.INDEFINITE);
-        switchPhotoTrigger.play();
 
         System.out.println("Working Directory = " + WORKING_DIRECTORY);
     }
